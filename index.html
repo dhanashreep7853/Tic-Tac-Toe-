@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let's Do Fun!!</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+    }
+
+    .fade-delay-1 { animation-delay: 0.2s; }
+    .fade-delay-2 { animation-delay: 0.4s; }
+    .fade-delay-3 { animation-delay: 0.6s; }
+    .fade-delay-4 { animation-delay: 0.8s; }
+  </style>
+</head>
+
+<body>
+  <!-- 1st Page: Welcome Screen -->
+  <div id="welcome-screen" class="screen" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <h1>Hii 🙂,</h1>
+    <h2>I'm Dhanashree.</h2>
+    <h3>Are you ready?</h3>
+    <h4>Let's do fun!</h4>
+    <p><b>(\_/)<br>( •.• )<br>/> <\</b></p>
+  </div>
+
+  <!-- 2nd Page: Game Screen -->
+  <div id="game-screen" class="screen" style="display: none; flex-direction: column; align-items: center;">
+    <h1>🎮 Tic Tac Toe</h1>
+    <div class="board" id="board" style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px;">
+      <div class="cell" onclick="makeMove(this, 0)"></div>
+      <div class="cell" onclick="makeMove(this, 1)"></div>
+      <div class="cell" onclick="makeMove(this, 2)"></div>
+      <div class="cell" onclick="makeMove(this, 3)"></div>
+      <div class="cell" onclick="makeMove(this, 4)"></div>
+      <div class="cell" onclick="makeMove(this, 5)"></div>
+      <div class="cell" onclick="makeMove(this, 6)"></div>
+      <div class="cell" onclick="makeMove(this, 7)"></div>
+      <div class="cell" onclick="makeMove(this, 8)"></div>
+    </div>
+    <div id="turn-msg" style="margin-top: 20px;">Your Turn</div>
+    <div id="result" style="margin-top: 10px;"></div>
+    <button id="restart-btn" onclick="restartGame()" style="margin-top: 20px;">Restart Game</button>
+  </div>
+
+  <!-- 3rd Page: Winner Screen -->
+  <div id="winner-screen" class="screen" style="display: none; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <h1 class="fade-in fade-delay-1" style="font-size: 2.5rem;">You're Winner 🏆!!</h1>
+    <h2 class="fade-in fade-delay-2" style="margin-top: 10px;">How is possible,</h2>
+    <h3 class="fade-in fade-delay-3" style="margin-top: 10px;"> Now I win 😏</h3>
+    <button class="fade-in fade-delay-4" onclick="restartGame()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.1rem;">Let's start again!!</button>
+  </div>
+
+  <!-- 4th Page: Loser Screen -->
+  <div id="loser-screen" class="screen" style="display: none; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <h1 class="fade-in fade-delay-1" style="font-size: 2.5rem;">You lose 😢</h1>
+    <p class="fade-in fade-delay-2" style="margin-top: 10px;">I always win 😎</p>
+    <button class="fade-in fade-delay-3" onclick="restartGame()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.1rem;">Let's do again!!</button>
+  </div>
+
+  <!-- JavaScript that switches screens after 3 seconds -->
+  <script>
+    // Auto-switch from Welcome Screen to Game Screen after 3 seconds
+    setTimeout(() => {
+      document.getElementById('welcome-screen').style.display = 'none';
+      document.getElementById('game-screen').style.display = 'flex';
+    }, 3000);
+  </script>
+
+  <!-- You can link your game logic here -->
+  <script src="script.js"></script>
+</body>
+</html>

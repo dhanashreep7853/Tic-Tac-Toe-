@@ -1,0 +1,136 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  overflow: hidden; /* Prevent any scroll */
+}
+
+/* Screens (Welcome, Game, Winner, Loser) */
+.screen {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(135deg, #1D2671, #C33764);
+  color: white;
+  overflow: hidden;
+}
+
+/* Welcome Screen Styling */
+#welcome-screen h1,
+#welcome-screen h2,
+#welcome-screen h3,
+#welcome-screen h4 {
+  margin: 10px;
+}
+
+#welcome-screen h1 { font-size: 3em; }
+#welcome-screen h2 { font-size: 2.5em; }
+#welcome-screen h3 { font-size: 2em; }
+#welcome-screen h4 { font-size: 1.8em; }
+
+/* Game Screen */
+#game-screen h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  color: black;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+#turn-msg {
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#result {
+  font-size: 2em;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Restart Button (Used in Game, Winner, Loser Screens) */
+#restart-btn,
+#winner-screen button,
+#loser-screen button {
+  background: linear-gradient(135deg, #1D2671, #C33764);
+  color: white;
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+#restart-btn:hover,
+#winner-screen button:hover,
+#loser-screen button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Initially hidden restart button inside game screen */
+#restart-btn {
+  display: none;
+}
+
+/* Winner and Loser Screens */
+#winner-screen h1,
+#loser-screen h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+#winner-screen h2,
+#winner-screen h3,
+#loser-screen p {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Optional Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
